@@ -7,7 +7,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <article className="rounded-2xl border border-border p-6">
+    <article className="flex h-full flex-col rounded-2xl border border-border p-6">
       <div className="mb-2 flex items-start justify-between gap-2">
         <h3 className="text-base font-semibold text-foreground">
           {project.name}
@@ -24,7 +24,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </a>
         )}
       </div>
-      <p className="text-sm text-muted">{project.description}</p>
+      <p className="line-clamp-3 text-sm text-muted">{project.description}</p>
       <p className="mt-2 text-xs text-muted">{project.stack}</p>
       {project.note && (
         <p className="mt-3 flex items-start gap-2 text-xs text-muted">
