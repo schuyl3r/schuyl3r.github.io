@@ -5,13 +5,6 @@ export interface ExperienceEntry {
   bullets: string[];
 }
 
-export interface ExperienceBriefEntry {
-  company: string;
-  role: string;
-  dates: string;
-  summary: string;
-}
-
 export interface ProjectEntry {
   name: string;
   description: string;
