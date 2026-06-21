@@ -9,6 +9,11 @@ export function Projects() {
     <section id="projects" className="py-20">
       <Container>
         <FadeIn>
+          <p className="mb-3 max-w-xl text-sm text-muted">
+            After a React-focused internship at BotBros AI, I started
+            teaching myself Next.js on personal projects — these three
+            came out of that.
+          </p>
           <SectionHeading>Projects</SectionHeading>
           <p className="-mt-4 mb-8 text-sm text-muted">
             Earlier and personal work.
