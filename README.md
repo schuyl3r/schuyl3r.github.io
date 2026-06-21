@@ -6,7 +6,7 @@ tutorial. It also happens to be my portfolio, the place I point people
 curious about my work as a frontend engineer, but that's the byproduct,
 not the point.
 
-**Live site:** [schuyl3r.github.io](https://schuyl3r.github.io)
+**Live site:** [schuyl3r-github-io.vercel.app](https://schuyl3r-github-io.vercel.app/#experience)
 
 ## Building it with Claude
 
