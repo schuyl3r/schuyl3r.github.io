@@ -5,7 +5,6 @@ export const experience: ExperienceEntry[] = [
     company: "Samsung R&D Institute Philippines",
     role: "Frontend Engineer",
     dates: "Feb 2025 – Mar 2026",
-    logo: "/logos/samsung.svg",
     bullets: [
       "Shipped features across 5 consecutive product releases (v3.31–v3.35)",
       "Redesigned multilingual feature architecture via a centralized form wrapper, reducing language-feature changes from multiple touchpoints to one component",

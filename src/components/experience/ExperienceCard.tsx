@@ -1,5 +1,4 @@
 import { Building2 } from "lucide-react";
-import Image from "next/image";
 import type { ExperienceEntry } from "@/types/content";
 
 interface ExperienceCardProps {
@@ -11,22 +10,7 @@ export function ExperienceCard({ entry }: ExperienceCardProps) {
     <article className="rounded-2xl border border-border p-6 transition-[border-color,box-shadow] hover:border-subtle hover:shadow-sm sm:p-8">
       <div className="mb-4 flex flex-wrap items-baseline justify-between gap-2">
         <div className="flex items-center gap-3">
-          {entry.logo ? (
-            <span className="flex h-7 shrink-0 items-center rounded-md border border-border bg-white px-2">
-              <Image
-                src={entry.logo}
-                alt={`${entry.company} logo`}
-                width={130}
-                height={20}
-                className="h-4 w-auto"
-              />
-            </span>
-          ) : (
-            <Building2
-              className="h-5 w-5 shrink-0 text-subtle"
-              aria-hidden
-            />
-          )}
+          <Building2 className="h-5 w-5 shrink-0 text-subtle" aria-hidden />
           <div>
             <h3 className="text-lg font-semibold text-foreground">
               {entry.company}
