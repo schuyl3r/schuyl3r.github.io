@@ -18,13 +18,11 @@ export function Hero() {
             them.
           </p>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-muted">
-            I started in backend, fixing Java bugs and refactoring legacy
-            modules at Infor PSSC after graduating from De La Salle
-            University with a CS degree. That groundwork led me into
-            frontend work at Sarisuki Stores, where I built a PWA and an
-            admin portal from scratch, and eventually to Samsung R&amp;D
-            Institute Philippines, where I&apos;ve shipped frontend
-            features across five consecutive product releases.
+            I look for what&apos;s been rebuilt five times across a codebase
+            and build it once. At Samsung, that meant collapsing a
+            multilingual feature scattered across multiple touchpoints into
+            a single form wrapper, and eliminating duplicate API calls that
+            were quietly costing the admin panel its load time.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Button href="#experience">View Experience</Button>
