@@ -3,6 +3,7 @@ export interface ExperienceEntry {
   role: string;
   dates: string;
   bullets: string[];
+  logo?: string;
 }
 
 export interface ExperienceBriefEntry {
