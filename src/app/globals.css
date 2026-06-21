@@ -1,21 +1,48 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme inline {
   /* Typography */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
+  /* Color tokens — actual values resolved per-mode via :root / .dark below */
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+}
+
+:root {
   /* Neutral scale — structure, text, borders */
-  --color-background: #ffffff;
-  --color-surface: #fafafa;
-  --color-foreground: #18181b;
-  --color-muted: #52525b;
-  --color-subtle: #a1a1aa;
-  --color-border: #e4e4e7;
+  --background: #ffffff;
+  --surface: #fafafa;
+  --foreground: #18181b;
+  --muted: #52525b;
+  --subtle: #a1a1aa;
+  --border: #e4e4e7;
 
   /* Single restrained accent — links, focus ring, primary CTA */
-  --color-accent: #3730a3;
-  --color-accent-foreground: #ffffff;
+  --accent: #3730a3;
+  --accent-foreground: #ffffff;
+}
+
+.dark {
+  --background: #0a0a0a;
+  --surface: #18181b;
+  --foreground: #fafafa;
+  --muted: #a1a1aa;
+  --subtle: #71717a;
+  --border: #27272a;
+
+  /* Accent shifts lighter in dark mode to stay AA against a near-black background */
+  --accent: #818cf8;
+  --accent-foreground: #0a0a0a;
 }
 
 html {

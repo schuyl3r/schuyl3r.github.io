@@ -1,4 +1,5 @@
 import { Container } from "@/components/ui/Container";
+import { ThemeToggle } from "@/components/layout/ThemeToggle";
 
 const navItems = [
   { label: "Experience", href: "#experience" },
@@ -17,17 +18,20 @@ export function Nav() {
         >
           Schuyler Ng
         </a>
-        <nav className="flex gap-3 font-mono text-sm font-medium text-muted sm:gap-6">
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="transition-colors hover:text-accent"
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
+        <div className="flex items-center gap-3 sm:gap-6">
+          <nav className="flex gap-3 font-mono text-sm font-medium text-muted sm:gap-6">
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="transition-colors hover:text-accent"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+          <ThemeToggle />
+        </div>
       </Container>
     </header>
   );
