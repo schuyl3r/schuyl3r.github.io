@@ -134,3 +134,9 @@ button:focus-visible {
     animation: none;
   }
 }
+
+@media (max-width: 640px) {
+  .aurora-blob {
+    display: none;
+  }
+}

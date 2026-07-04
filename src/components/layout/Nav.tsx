@@ -64,7 +64,7 @@ export function Nav() {
                     smoothScrollTo(item.id);
                   }}
                   aria-current={isActive ? "true" : undefined}
-                  className={`${prefersReducedMotion ? "" : "transition-colors"} ${
+                  className={`-mx-2 -my-2 rounded-md px-2 py-2 ${prefersReducedMotion ? "" : "transition-colors"} ${
                     isActive
                       ? "text-accent"
                       : "text-muted hover:text-accent"
