@@ -6,39 +6,60 @@ import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 interface FadeInProps {
   children: ReactNode;
   className?: string;
+  delay?: number;
 }
 
-export function FadeIn({ children, className = "" }: FadeInProps) {
+const REVEAL_FRACTION = 0.5;
+const TRAVEL_PX = 16;
+
+export function FadeIn({ children, className = "", delay = 0 }: FadeInProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [hasIntersected, setHasIntersected] = useState(false);
+  const [progress, setProgress] = useState(0);
   const prefersReducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
+    if (prefersReducedMotion) return;
+
     const element = ref.current;
-    if (!element || prefersReducedMotion) return;
+    if (!element) return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setHasIntersected(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.15 },
-    );
+    let ticking = false;
+    const compute = () => {
+      const rect = element.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      const raw =
+        (viewportHeight - rect.top) / (viewportHeight * REVEAL_FRACTION);
+      setProgress(Math.min(1, Math.max(0, raw)));
+      ticking = false;
+    };
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(compute);
+      }
+    };
 
-    observer.observe(element);
-    return () => observer.disconnect();
+    compute();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, [prefersReducedMotion]);
 
-  const isVisible = prefersReducedMotion || hasIntersected;
+  const displayProgress = prefersReducedMotion ? 1 : progress;
 
   return (
     <div
       ref={ref}
-      className={`transition-[opacity,transform] duration-700 ease-out ${
-        isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
-      } ${className}`}
+      style={{
+        opacity: displayProgress,
+        transform: `translateY(${(1 - displayProgress) * TRAVEL_PX}px)`,
+        transitionDelay:
+          prefersReducedMotion || delay === 0 ? undefined : `${delay}ms`,
+      }}
+      className={`transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${className}`}
     >
       {children}
     </div>

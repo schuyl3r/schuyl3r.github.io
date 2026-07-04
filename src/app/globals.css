@@ -4,7 +4,8 @@
 
 @theme inline {
   /* Typography */
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-dm-sans);
+  --font-heading: var(--font-space-grotesk);
   --font-mono: var(--font-geist-mono);
 
   /* Color tokens — actual values resolved per-mode via :root / .dark below */
@@ -28,7 +29,7 @@
   --border: #e4e4e7;
 
   /* Single restrained accent — links, focus ring, primary CTA */
-  --accent: #3730a3;
+  --accent: #4f46e5;
   --accent-foreground: #ffffff;
 }
 
@@ -71,5 +72,69 @@ button:focus-visible {
   *::after {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
+  }
+}
+
+.custom-cursor-active,
+.custom-cursor-active * {
+  cursor: none !important;
+}
+
+.aurora-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: 0.14;
+  background: var(--color-accent);
+  animation: aurora-drift 100s ease-in-out infinite;
+}
+
+.dark .aurora-blob {
+  opacity: 0.22;
+}
+
+.aurora-blob-1 {
+  top: -12%;
+  left: -12%;
+  width: 42vw;
+  height: 42vw;
+  animation-duration: 100s;
+}
+
+.aurora-blob-2 {
+  top: 28%;
+  right: -16%;
+  width: 36vw;
+  height: 36vw;
+  background: #6366f1;
+  animation-duration: 130s;
+  animation-delay: -30s;
+}
+
+.aurora-blob-3 {
+  bottom: -16%;
+  left: 22%;
+  width: 34vw;
+  height: 34vw;
+  animation-duration: 115s;
+  animation-delay: -60s;
+}
+
+@keyframes aurora-drift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(4%, 6%) scale(1.08);
+  }
+  66% {
+    transform: translate(-5%, -4%) scale(0.96);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-blob {
+    animation: none;
   }
 }

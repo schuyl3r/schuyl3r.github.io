@@ -11,14 +11,33 @@ Next.js (App Router), TypeScript, Tailwind CSS, deployed on Vercel
 
 ## Design Direction
 
-- Clean, minimal base elevated with intentional typography — not
-  plain, not busy
-- Motion: subtle and purposeful only (scroll fade-ins, hover states,
-  one signature interaction max). No animation for its own sake.
-- Respect prefers-reduced-motion
-- Light mode is the v1 requirement. Dark mode is a stretch goal —
-  build and ship light mode completely first; only add dark mode if
-  time remains before other sections are done.
+**V2 (current)** — a more distinctive, personal-but-professional
+identity layered on top of v1's clean base, not a redesign of the
+content or IA:
+
+- Typography: Space Grotesk (headings, `font-heading`) + DM Sans
+  (body, default `font-sans`) + Geist Mono (labels/dates/eyebrows,
+  unchanged from v1)
+- Accent color: indigo-600 `#4f46e5` in light mode (richer/more
+  saturated than v1's flat navy-indigo `#3730a3`), indigo-400 in dark
+  mode (unchanged — already well-judged for a dark background)
+- Signature interaction: an animated badminton-shuttlecock cursor
+  (`src/components/ui/ShuttlecockCursor.tsx`) replaces the native
+  pointer — cork leads in the direction of travel, feathers trail like
+  fletching. Only active on fine-pointer devices with no
+  `prefers-reduced-motion`; falls back to the native cursor on touch
+  and when reduced motion is preferred, live-updating if either
+  changes mid-session.
+- Motion: spring-like easing (`cubic-bezier(0.16,1,0.3,1)`) on
+  scroll-reveals and hover states, ~40ms per-item stagger on
+  lists/grids, custom eased smooth-scroll on nav clicks
+  (`src/lib/smoothScrollTo.ts`). Still restrained and purposeful — no
+  animation for its own sake, and v1's "one signature interaction max"
+  is superseded by the cursor + refined hover/scroll physics above.
+- Respect prefers-reduced-motion everywhere, including the cursor
+- Both light and dark mode are fully supported and designed together
+  — v1's "dark mode is a stretch goal, build light first" no longer
+  applies; v2 ships and maintains both
 - 8px spacing rhythm, WCAG AA contrast minimum
 - No emoji as icons — Lucide only
 - Mobile-first responsive layout
@@ -94,11 +113,14 @@ BS Computer Science, De La Salle University Manila, 2017–2021
 ## Sections (in order)
 
 1. Hero — name, "Frontend Engineer," one-line value prop, CTA to
-   Experience + resume download (links to /resume.pdf — see note below)
+   Experience + resume download (links to /Schuyler_Ng_Resume.pdf)
 2. Experience — Samsung and Sarisuki as case-study cards using the
    content above verbatim. Infor PSSC as a single brief line, not a
    full card.
-3. Projects — secondary section, framed as earlier/personal work
+3. Projects — two tiers: Bu-Hao Minton and Site Visit Scheduler as
+   featured cards (screenshot, stack tags, live + repo links); Mel's
+   Collection, Tagalog Transformer, and Intercon Regenerative Center
+   as smaller text-only "Earlier projects" cards below
 4. Skills — grouped exactly as above
 5. Contact — email, LinkedIn, GitHub only
 

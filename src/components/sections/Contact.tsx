@@ -18,20 +18,22 @@ export function Contact() {
         <FadeIn>
           <SectionHeading>Contact</SectionHeading>
           <ul className="space-y-4">
-            {contactLinks.map((link) => {
+            {contactLinks.map((link, index) => {
               const Icon = icons[link.icon];
               const isExternal = link.icon !== "mail";
               return (
                 <li key={link.href}>
-                  <a
-                    href={link.href}
-                    target={isExternal ? "_blank" : undefined}
-                    rel={isExternal ? "noopener noreferrer" : undefined}
-                    className="flex items-center gap-3 text-base text-muted transition-colors hover:text-accent"
-                  >
-                    <Icon className="h-4 w-4 text-subtle" aria-hidden />
-                    {link.label}
-                  </a>
+                  <FadeIn delay={index * 40}>
+                    <a
+                      href={link.href}
+                      target={isExternal ? "_blank" : undefined}
+                      rel={isExternal ? "noopener noreferrer" : undefined}
+                      className="flex items-center gap-2 text-base text-muted transition-colors hover:text-accent"
+                    >
+                      <Icon className="h-4 w-4 text-subtle" aria-hidden />
+                      {link.label}
+                    </a>
+                  </FadeIn>
                 </li>
               );
             })}

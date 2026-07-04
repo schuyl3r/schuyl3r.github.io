@@ -8,9 +8,19 @@ export interface ExperienceEntry {
 export interface ProjectEntry {
   name: string;
   description: string;
-  stack: string;
+  stack: string[];
   link?: string;
   note?: string;
+}
+
+export interface FeaturedProjectEntry {
+  name: string;
+  description: string;
+  stack: string[];
+  image: string;
+  imageAlt: string;
+  liveUrl: string;
+  repoUrl: string;
 }
 
 export interface SkillGroup {

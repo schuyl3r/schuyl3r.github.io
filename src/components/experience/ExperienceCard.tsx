@@ -1,4 +1,7 @@
+"use client";
+
 import { Building2 } from "lucide-react";
+import { useCardHoverClass } from "@/hooks/useCardHoverClass";
 import type { ExperienceEntry } from "@/types/content";
 
 interface ExperienceCardProps {
@@ -6,13 +9,17 @@ interface ExperienceCardProps {
 }
 
 export function ExperienceCard({ entry }: ExperienceCardProps) {
+  const hoverClass = useCardHoverClass();
+
   return (
-    <article className="rounded-2xl border border-border p-6 transition-[border-color,box-shadow] hover:border-subtle hover:shadow-sm sm:p-8">
+    <article
+      className={`rounded-2xl border border-border p-6 sm:p-8 ${hoverClass}`}
+    >
       <div className="mb-4 flex flex-wrap items-baseline justify-between gap-2">
         <div className="flex items-center gap-3">
           <Building2 className="h-5 w-5 shrink-0 text-subtle" aria-hidden />
           <div>
-            <h3 className="text-lg font-semibold text-foreground">
+            <h3 className="font-heading text-lg font-semibold text-foreground">
               {entry.company}
             </h3>
             <p className="text-sm text-muted">{entry.role}</p>

@@ -12,8 +12,8 @@ export function Experience() {
           <SectionHeading>Experience</SectionHeading>
         </FadeIn>
         <div className="space-y-6">
-          {experience.map((entry) => (
-            <FadeIn key={`${entry.company}-${entry.role}`}>
+          {experience.map((entry, index) => (
+            <FadeIn key={`${entry.company}-${entry.role}`} delay={index * 40}>
               <ExperienceCard entry={entry} />
             </FadeIn>
           ))}
