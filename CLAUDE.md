@@ -21,20 +21,21 @@ content or IA:
 - Accent color: indigo-600 `#4f46e5` in light mode (richer/more
   saturated than v1's flat navy-indigo `#3730a3`), indigo-400 in dark
   mode (unchanged — already well-judged for a dark background)
-- Signature interaction: an animated badminton-shuttlecock cursor
-  (`src/components/ui/ShuttlecockCursor.tsx`) replaces the native
-  pointer — cork leads in the direction of travel, feathers trail like
-  fletching. Only active on fine-pointer devices with no
-  `prefers-reduced-motion`; falls back to the native cursor on touch
-  and when reduced motion is preferred, live-updating if either
-  changes mid-session.
+- A custom animated cursor was tried (badminton shuttlecock) and
+  removed — it behaved unreliably across desktop input setups. Use the
+  native cursor; don't reintroduce a custom cursor without a specific
+  ask.
+- A subtle parallax "aurora" background (`src/components/ui/AuroraBackground.tsx`,
+  `.aurora-blob` in globals.css) sits behind all content — kept
+  intentionally low-opacity/blurred so it never competes with text
+  contrast. If it's adjusted, re-check readability over body copy in
+  both themes, not just at a glance.
 - Motion: spring-like easing (`cubic-bezier(0.16,1,0.3,1)`) on
   scroll-reveals and hover states, ~40ms per-item stagger on
   lists/grids, custom eased smooth-scroll on nav clicks
   (`src/lib/smoothScrollTo.ts`). Still restrained and purposeful — no
-  animation for its own sake, and v1's "one signature interaction max"
-  is superseded by the cursor + refined hover/scroll physics above.
-- Respect prefers-reduced-motion everywhere, including the cursor
+  animation for its own sake.
+- Respect prefers-reduced-motion everywhere
 - Both light and dark mode are fully supported and designed together
   — v1's "dark mode is a stretch goal, build light first" no longer
   applies; v2 ships and maintains both

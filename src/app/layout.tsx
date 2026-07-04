@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { DM_Sans, Geist_Mono, Space_Grotesk } from "next/font/google";
 import { Nav } from "@/components/layout/Nav";
 import { AuroraBackground } from "@/components/ui/AuroraBackground";
-import { ShuttlecockCursor } from "@/components/ui/ShuttlecockCursor";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -44,7 +43,6 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col font-sans">
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
         <AuroraBackground />
-        <ShuttlecockCursor />
         <Nav />
         {children}
       </body>
