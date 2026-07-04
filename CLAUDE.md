@@ -114,7 +114,7 @@ BS Computer Science, De La Salle University Manila, 2017–2021
 ## Sections (in order)
 
 1. Hero — name, "Frontend Engineer," one-line value prop, CTA to
-   Experience + resume download (links to /Schuyler_Ng_Resume.pdf)
+   Experience + resume download (links to /resume.pdf)
 2. Experience — Samsung and Sarisuki as case-study cards using the
    content above verbatim. Infor PSSC as a single brief line, not a
    full card.

@@ -37,7 +37,7 @@ export function Hero() {
             >
               View Experience
             </Button>
-            <Button href="/Schuyler_Ng_Resume.pdf" download variant="secondary">
+            <Button href="/resume.pdf" download variant="secondary">
               Download Résumé
             </Button>
           </div>
