@@ -9,7 +9,7 @@ interface FadeInProps {
   delay?: number;
 }
 
-const REVEAL_FRACTION = 0.5;
+const REVEAL_DISTANCE_PX = 180;
 const TRAVEL_PX = 16;
 
 export function FadeIn({ children, className = "", delay = 0 }: FadeInProps) {
@@ -25,10 +25,19 @@ export function FadeIn({ children, className = "", delay = 0 }: FadeInProps) {
 
     let ticking = false;
     const compute = () => {
-      const rect = element.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
-      const raw =
-        (viewportHeight - rect.top) / (viewportHeight * REVEAL_FRACTION);
+      const atMaxScroll =
+        window.scrollY + viewportHeight >=
+        document.documentElement.scrollHeight - 1;
+
+      if (atMaxScroll) {
+        setProgress(1);
+        ticking = false;
+        return;
+      }
+
+      const rect = element.getBoundingClientRect();
+      const raw = (viewportHeight - rect.top) / REVEAL_DISTANCE_PX;
       setProgress(Math.min(1, Math.max(0, raw)));
       ticking = false;
     };
