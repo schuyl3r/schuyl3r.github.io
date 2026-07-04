@@ -16,6 +16,16 @@ export const experience: ExperienceEntry[] = [
   },
   {
     company: "Sarisuki Stores Inc.",
+    role: "Front-End Consultant · Part-time",
+    dates: "Nov 2024 – Jan 2025",
+    bullets: [
+      "Built a customer-facing PWA from the ground up (Next.js, TypeScript, Tailwind CSS, Ionic, Capacitor) covering home, search, and product flows",
+      "Wired in Google Maps for store locations, Algolia for product search, and SMS OTP for account access",
+      "Worked directly with backend engineers on API integration and owned client-side state with Zustand",
+    ],
+  },
+  {
+    company: "Sarisuki Stores Inc.",
     role: "Software Engineer · Full-time",
     dates: "Oct 2022 – Oct 2024",
     bullets: [
@@ -24,16 +34,6 @@ export const experience: ExperienceEntry[] = [
       "Rebuilt the SariSuki Webstore UI for a company-wide rebrand, working directly with design to keep the new system consistent across every page",
       "Took on mobile work for the first time in the role: redesigned the Supah app in Flutter (GetX) and integrated MoEngage analytics into the CL app (BLoC)",
       "Set up engagement tracking that gave the product team direct visibility into real feature usage",
-    ],
-  },
-  {
-    company: "Sarisuki Stores Inc.",
-    role: "Front-End Consultant · Part-time",
-    dates: "Nov 2024 – Jan 2025",
-    bullets: [
-      "Built a customer-facing PWA from the ground up (Next.js, TypeScript, Tailwind CSS, Ionic, Capacitor) covering home, search, and product flows",
-      "Wired in Google Maps for store locations, Algolia for product search, and SMS OTP for account access",
-      "Worked directly with backend engineers on API integration and owned client-side state with Zustand",
     ],
   },
   {
