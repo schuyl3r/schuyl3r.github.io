@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Container } from "@/components/ui/Container";
+import { ScrollProgress } from "@/components/layout/ScrollProgress";
 import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import { smoothScrollTo } from "@/lib/smoothScrollTo";
@@ -40,6 +41,7 @@ export function Nav() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-sm">
+      <ScrollProgress />
       <Container className="flex h-16 items-center justify-between">
         <a
           href="#hero"

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Sans, Geist_Mono, Space_Grotesk } from "next/font/google";
+import { Footer } from "@/components/layout/Footer";
 import { Nav } from "@/components/layout/Nav";
 import { AuroraBackground } from "@/components/ui/AuroraBackground";
 import "./globals.css";
@@ -45,6 +46,7 @@ export default function RootLayout({
         <AuroraBackground />
         <Nav />
         {children}
+        <Footer />
       </body>
     </html>
   );

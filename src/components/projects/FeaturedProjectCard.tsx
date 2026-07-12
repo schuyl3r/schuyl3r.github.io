@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { ArrowUpRight, Code2 } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
-import { useCardHoverClass } from "@/hooks/useCardHoverClass";
+import { SpotlightCard } from "@/components/ui/SpotlightCard";
 import type { FeaturedProjectEntry } from "@/types/content";
 
 interface FeaturedProjectCardProps {
@@ -11,18 +11,14 @@ interface FeaturedProjectCardProps {
 }
 
 export function FeaturedProjectCard({ project }: FeaturedProjectCardProps) {
-  const hoverClass = useCardHoverClass();
-
   return (
-    <article
-      className={`flex h-full flex-col rounded-2xl border border-border ${hoverClass}`}
-    >
+    <SpotlightCard className="group flex h-full flex-col">
       <div className="relative aspect-video overflow-hidden rounded-t-2xl">
         <Image
           src={project.image}
           alt={project.imageAlt}
           fill
-          className="object-cover"
+          className="object-cover transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] motion-safe:group-hover:scale-[1.04]"
           sizes="(min-width: 640px) 50vw, 100vw"
         />
       </div>
@@ -43,10 +39,13 @@ export function FeaturedProjectCard({ project }: FeaturedProjectCardProps) {
             href={project.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-accent transition-colors hover:text-foreground"
+            className="group/link flex items-center gap-2 text-accent transition-colors hover:text-foreground"
           >
             Live site
-            <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
+            <ArrowUpRight
+              className="h-3.5 w-3.5 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] motion-safe:group-hover/link:translate-x-0.5 motion-safe:group-hover/link:-translate-y-0.5"
+              aria-hidden
+            />
           </a>
           <a
             href={project.repoUrl}
@@ -59,6 +58,6 @@ export function FeaturedProjectCard({ project }: FeaturedProjectCardProps) {
           </a>
         </div>
       </div>
-    </article>
+    </SpotlightCard>
   );
 }

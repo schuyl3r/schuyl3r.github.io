@@ -5,6 +5,7 @@ export const experience: ExperienceEntry[] = [
     company: "Samsung R&D Institute Philippines",
     role: "Frontend Engineer",
     dates: "Feb 2025 – Mar 2026",
+    highlight: "5 consecutive releases shipped",
     bullets: [
       "Shipped features across 5 consecutive product releases (v3.31–v3.35)",
       "Redesigned multilingual feature architecture via a centralized form wrapper, reducing language-feature changes from multiple touchpoints to one component",
@@ -28,6 +29,7 @@ export const experience: ExperienceEntry[] = [
     company: "Sarisuki Stores Inc.",
     role: "Software Engineer · Full-time",
     dates: "Oct 2022 – Oct 2024",
+    highlight: "75% faster B2B invoicing",
     bullets: [
       "Led a team of five through the Talon.One integration, rebuilding the rewards and campaigns experience inside the CL app",
       "Designed and shipped an internal admin portal from scratch (Vue.js, Tailwind CSS), cutting B2B invoicing turnaround by 75% within five months",

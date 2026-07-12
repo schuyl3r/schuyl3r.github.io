@@ -10,11 +10,11 @@ export function Projects() {
     <section id="projects" className="py-20">
       <Container>
         <FadeIn>
-          <p className="mb-4 max-w-xl text-base text-muted">
+          <SectionHeading>Projects</SectionHeading>
+          <p className="-mt-4 mb-8 max-w-xl text-base text-muted">
             After a React internship at BotBros AI, I started building on my
             own. The earlier projects below eventually led to these.
           </p>
-          <SectionHeading>Projects</SectionHeading>
         </FadeIn>
         <div className="grid items-stretch gap-8 sm:grid-cols-2">
           {featuredProjects.map((project, index) => (
@@ -27,7 +27,7 @@ export function Projects() {
         <p className="font-heading mt-16 mb-6 text-[13px] font-semibold tracking-wider text-subtle uppercase">
           Earlier projects
         </p>
-        <div className="grid items-stretch gap-6 sm:grid-cols-2">
+        <div className="grid items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {earlierProjects.map((project, index) => (
             <FadeIn key={project.name} className="h-full" delay={index * 40}>
               <ProjectCard project={project} />

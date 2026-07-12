@@ -3,6 +3,8 @@ export interface ExperienceEntry {
   role: string;
   dates: string;
   bullets: string[];
+  /** Standout metric pulled from the bullets, shown as an impact chip */
+  highlight?: string;
 }
 
 export interface ProjectEntry {

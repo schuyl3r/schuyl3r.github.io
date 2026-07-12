@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowUpRight, Award } from "lucide-react";
-import { useCardHoverClass } from "@/hooks/useCardHoverClass";
+import { SpotlightCard } from "@/components/ui/SpotlightCard";
 import type { ProjectEntry } from "@/types/content";
 
 interface ProjectCardProps {
@@ -9,12 +9,8 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
-  const hoverClass = useCardHoverClass();
-
   return (
-    <article
-      className={`flex h-full flex-col rounded-2xl border border-border p-6 ${hoverClass}`}
-    >
+    <SpotlightCard className="flex h-full flex-col p-6">
       <div className="mb-2 flex items-start justify-between gap-2">
         <h3 className="font-heading text-base font-semibold text-foreground">
           {project.name}
@@ -44,6 +40,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
           <span>{project.note}</span>
         </p>
       )}
-    </article>
+    </SpotlightCard>
   );
 }

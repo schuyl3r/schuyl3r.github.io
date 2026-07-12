@@ -76,6 +76,41 @@ button:focus-visible {
   }
 }
 
+/* Cursor-tracked spotlight on cards — hover-capable pointers only.
+   Painted before child content so it always sits under text. */
+@media (hover: hover) {
+  .spotlight-card {
+    position: relative;
+  }
+
+  .spotlight-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+      280px circle at var(--spot-x, 50%) var(--spot-y, 50%),
+      color-mix(in srgb, var(--color-accent) 8%, transparent),
+      transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .spotlight-card:hover::before {
+    opacity: 1;
+  }
+
+  .dark .spotlight-card::before {
+    background: radial-gradient(
+      280px circle at var(--spot-x, 50%) var(--spot-y, 50%),
+      color-mix(in srgb, var(--color-accent) 14%, transparent),
+      transparent 70%
+    );
+  }
+}
+
 .aurora-blob {
   position: absolute;
   border-radius: 9999px;
